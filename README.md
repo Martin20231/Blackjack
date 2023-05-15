@@ -1,4 +1,5 @@
 # Beginner Black Jack
+//Spielchips, Kartensymbolen, Werte, Win and Lose, Anzahl der vom Spieler zur Verfügung stehenden Chips 
 
 Das Array "variant" enthält vier Unicode-Zeichen, die Herz, Pik, Karo bzw. Multiplikationssymbole darstellen.
 
@@ -34,12 +35,19 @@ Die zweite Funktion, "klick_schwarz()", ist der ersten ähnlich, behandelt aber 
 Dieser Abschnitt des Codes enthält die Implementierung der Spiellogik und die zugehörigen Variablen zur Verfolgung von Gewinnen und Verlusten.
 
 wins_gesamt_spieler, wins_gesamt_cpu, lose_gesamt_spieler und lose_gesamt_cpu sind Variablen, die dazu dienen, die Anzahl der Gewinne und Verluste für jeden Spieler zu verfolgen.
+
+//start_function() und der Erzeugung der Kartendecks
+
 Die Funktion start_function() ist die Hauptfunktion des Spiels, die aufgerufen wird, wenn der Spieler auf die Schaltfläche "Start" klickt. Sie prüft, ob der Spieler mindestens 10 € gesetzt hat, und gibt andernfalls eine Warnung zurück.
 Vier Arrays werden definiert, um die verschiedenen Kartentypen im Spiel darzustellen: variant, werte, karten_farben und karten_werte. Diese Arrays werden verwendet, um zufällige Karten für den Spieler und die CPU zu erzeugen.
 Mehrere Variablen werden definiert, um die Kartendecks des Spielers und der CPU darzustellen: deck_cpu, deck_cpu1, deck_spieler, deck_spieler1 und deck_spieler2.
 Zufallszahlen werden generiert, um den Typ und den Wert der Karten für den Spieler und die CPU zu repräsentieren, indem die Funktion Math.random() und die Längen der Arrays variant und werte verwendet werden.
 
+// Ziehen der Karten für Spieler und CPU und Speichern in Decks
+
 In diesem Teil des Codes werden die Karten für den CPU und den Spieler gezogen und in die entsprechenden Decks gespeichert. Dazu werden zunächst leere Arrays für die Decks erstellt. Anschließend werden Zufallszahlen erzeugt, um die Variante und den Wert jeder Karte aus den entsprechenden Arrays zu wählen. Mit diesen Werten wird dann für jede Karte ein Array erstellt und in das jeweilige Deck gespeichert. Insgesamt werden zwei Karten für den Spieler und zwei Karten für den CPU gezogen und in die Decks gespeichert.
+
+//Anzeige von Karten und Punkteberechnung
 
 Dieser Abschnitt des Codes ist für die Anzeige der Karten des Spielers und der CPU sowie für die Berechnung ihrer Punkte verantwortlich.
 
@@ -47,9 +55,13 @@ Der erste Teil verwendet die Methode document.querySelector(), um die Elemente m
 
 Im zweiten Teil werden vier Variablen definiert, um die Punkte jedes Decks zu speichern, die auf 0 initialisiert werden.
 
+//Berechnung der Punkte und Anzeige der Gesamtpunktzahl
+
 Schließlich gibt es eine Funktion namens werte_rechner(x, y), die zwei Parameter benötigt, x und y. Diese Funktion nimmt ein Kartenobjekt aus einem Deck, sucht seinen Wert und fügt ihn dem angegebenen y-Parameter hinzu. Der Wert der Karte wird durch ihr zweites Element (d.h. ihren Rang) bestimmt, das mit einer Reihe von if-Anweisungen verglichen wird. Wenn der Rang "Zwei" ist, wird der Wert 2 zu y addiert, und so weiter, bis alle möglichen Ränge ausgewertet worden sind. Der aktualisierte Wert von y wird von der Funktion zurückgegeben.
 
 Das Codeschnipsel berechnet die Gesamtpunkte für die CPU und den Spieler auf der Grundlage der vom Stapel gezogenen Karten. Er berechnet zunächst die Punkte für die CPU, indem er die Funktion werte_rechner() mit den beiden Karten der CPU aufruft und sie addiert, um die Gesamtpunkte zu erhalten. Anschließend wird die Gesamtpunktzahl für die CPU auf der Webseite angezeigt.
+
+//Funktion zum Hinzufügen von Karten und Berechnen von Gesamtpunkten des Spielers.
 
 Als nächstes wird eine Funktion namens klicke_hit() definiert, die ausgeführt wird, wenn der Spieler auf die Schaltfläche "Hit" klickt. Die Funktion erstellt eine neue Karte für den Spieler und schiebt sie in das Array deck_spieler2.
 
@@ -58,5 +70,7 @@ Nach der Definition der Funktion klicke_hit() prüft der Code, ob die Schaltflä
 Wenn die Schaltfläche "Treffer" nicht angeklickt wurde, wird davon ausgegangen, dass der Spieler keine weitere Karte ziehen möchte. Daher wird die Gesamtpunktzahl des Spielers berechnet, indem die Funktion werte_rechner() mit den beiden Karten des Spielers aufgerufen und die Gesamtpunktzahl addiert wird. Anschließend wird die Gesamtpunktzahl für den Spieler auf der Webseite angezeigt.
 
 Insgesamt implementiert das Codeschnipsel ein einfaches Kartenspiel, bei dem der Spieler und die CPU Karten von einem Stapel ziehen, und der Gewinner ist derjenige, der die höchste Gesamtpunktzahl erreicht, ohne 21 zu überschreiten.
+
+//Anzeige und Änderung der Gewinn- und Verlustzahlen und Benachrichtigung des Spielers über den Gewinner
 
 Dieser Codeabschnitt ist verantwortlich für die Anzeige und Änderung der Gewinn- und Verlustzahlen sowie für die Benachrichtigung des Spielers über den Gewinner. Wenn der Spieler gewinnt, wird der Gewinnzähler erhöht, der Gesamteinsatz des Spielers wird zu seinen Chips hinzugefügt und der Einsatz wird auf Null zurückgesetzt. Wenn der Spieler verliert, wird der Verlustzähler erhöht und der Einsatz wird auf Null zurückgesetzt. Wenn ein Spieler fünf Siege erreicht, wird eine Benachrichtigung ausgegeben. Wenn der Computer gewinnt, wird eine Benachrichtigung ausgegeben, dass der Computer gewonnen hat. Wenn der Spieler gewinnt, wird eine Benachrichtigung ausgegeben, dass der Spieler gewonnen hat.
